@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile_exam/screens/exam/blocs/counter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import 'package:mobile_exam/core/extensions/common.dart';
@@ -20,11 +21,12 @@ class App extends StatelessWidget {
       providers: [
         Provider<Screens>(create: (_) => Screens()),
         Provider<Server>(create: (_) => Server()),
+        Provider<CounterBloc>(create: (context) => CounterBloc()),
       ],
       builder: (context, _) {
         return MaterialApp(
           // app title
-          onGenerateTitle: (context) => context.strings.appTitle,
+          onGenerateTitle: (context) => context.strings?.appTitle ?? '',
 
           // backgrounding
           restorationScopeId: 'app', // restore Navigator for backgrounding

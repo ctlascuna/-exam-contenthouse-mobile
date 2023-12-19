@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as base;
 import 'package:mobile_exam/core/app/view.dart' as view;
 
-import 'bloc.dart';
+import 'blocs/bloc.dart';
 
 class Screen extends StatefulWidget {
   const Screen({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _ScreenState extends State<Screen> {
           },
           child: Scaffold(
             appBar: AppBar(
-              title: Text(context.strings?.hint1AppbarTitle ?? ''),
+              title: const Text('Exam'),
             ),
             body: SafeArea(
               child: base.BlocBuilder<Bloc, view.ViewState>(
